@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show da Semana da Consciência Negra</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- TELA 1: CONFIGURAÇÃO DAS EQUIPES -->
+    <section id="setup-screen" class="screen active">
+        <div class="logo-container">
+            <span class="badge">EDIÇÃO ESPECIAL</span>
+            <h1>SHOW Semana da<br><span class="highlight">CONSCIÊNCIA NEGRA</span></h1>
+        </div>
+
+        <div class="setup-box">
+            <h2>Configuração das Equipes</h2>
+            <p class="subtitle">Defina o nome das 4 equipes participantes:</p>
+            
+            <div class="teams-inputs">
+                <div class="team-input-card" style="--team-color: #e63946;">
+                    <span class="color-dot"></span>
+                    <input type="text" id="team-name-0" value="Equipe Vermelha" placeholder="Nome da Equipe 1">
+                </div>
+                <div class="team-input-card" style="--team-color: #2a9d8f;">
+                    <span class="color-dot"></span>
+                    <input type="text" id="team-name-1" value="Equipe Verde" placeholder="Nome da Equipe 2">
+                </div>
+                <div class="team-input-card" style="--team-color: #3a86ff;">
+                    <span class="color-dot"></span>
+                    <input type="text" id="team-name-2" value="Equipe Azul" placeholder="Nome da Equipe 3">
+                </div>
+                <div class="team-input-card" style="--team-color: #f4a261;">
+                    <span class="color-dot"></span>
+                    <input type="text" id="team-name-3" value="Equipe Amarela" placeholder="Nome da Equipe 4">
+                </div>
+            </div>
+
+            <button id="start-btn" class="btn-primary">INICIAR COMPETIÇÃO</button>
+        </div>
+    </section>
+
+    <!-- TELA 2: PALCO DO JOGO -->
+    <section id="game-screen" class="screen">
+        <!-- Placar Superior (Ranking ao Vivo) -->
+        <header class="scoreboard" id="live-scoreboard">
+            <!-- Preenchido via JS em ordem de pontuação -->
+        </header>
+
+        <main class="stage">
+            <!-- Indicador de Vez -->
+            <div class="turn-banner" id="turn-banner">
+                <span class="round-info" id="round-info">RODADA 1</span>
+                <h2 id="current-team-display">VEZ DA EQUIPE VERMELHA</h2>
+            </div>
+
+            <!-- Caixa da Pergunta -->
+            <div class="question-container">
+                <span class="theme-tag" id="question-theme">Tema: História</span>
+                <p class="question-text" id="question-text">Carregando pergunta...</p>
+            </div>
+
+            <!-- Alternativas -->
+            <div class="options-grid" id="options-grid">
+                <!-- Botões A, B, C, D gerados via JS -->
+            </div>
+
+            <!-- Controles do Apresentador -->
+            <div class="host-controls">
+                <button id="next-btn" class="btn-secondary hidden">PRÓXIMA PERGUNTA ➔</button>
+                <button id="finish-early-btn" class="btn-outline">Encerrar e Ver Pódio</button>
+            </div>
+        </main>
+    </section>
+
+    <!-- TELA 3: PÓDIO FINAL -->
+    <section id="podium-screen" class="screen">
+        <h1>RESULTADO FINAL</h1>
+        <p class="subtitle">Show: Semana da Consciência Negra</p>
+
+        <!-- Top 3 (2º à esquerda, 1º no centro, 3º à direita) -->
+        <div class="podium-top" id="podium-top">
+            <!-- Gerado via JS -->
+        </div>
+
+        <!-- Demais colocações em lista -->
+        <div class="podium-others" id="podium-others">
+            <!-- Gerado via JS -->
+        </div>
+
+        <button onclick="location.reload()" class="btn-primary" style="margin-top: 30px;">JOGAR NOVAMENTE</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
