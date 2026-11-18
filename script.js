@@ -205,9 +205,9 @@ const PERGUNTA_SURPRESA_EXTRA = {
 let filaPerguntas = [];
 let equipes = [
     { id: 0, nome: "Equipe Vermelha", cor: "#e63946", pontos: 0, usoFifty: false, usoDouble: false },
-    { id: 1, nome: "Equipe Verde", cor: "#2a9d8f", pontos: 0, usoFifty: false, usoDouble: false },
-    { id: 2, nome: "Equipe Amarela", cor: "#f4a261", pontos: 0, usoFifty: false, usoDouble: false },
-    { id: 3, nome: "Equipe Roxa", cor: "#9b5de5", pontos: 0, usoFifty: false, usoDouble: false }
+    { id: 1, nome: "Equipe Verde", cor: "#136520", pontos: 0, usoFifty: false, usoDouble: false },
+    { id: 2, nome: "Equipe Amarela", cor: "#ebdd20", pontos: 0, usoFifty: false, usoDouble: false },
+    { id: 3, nome: "Equipe Rosa", cor: "#b3547b", pontos: 0, usoFifty: false, usoDouble: false }
 ];
 
 let indiceFilaAtual = 0;
