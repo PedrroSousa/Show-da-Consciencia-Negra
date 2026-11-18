@@ -8,87 +8,144 @@
 </head>
 <body>
 
-    <!-- TELA 1: CONFIGURAÇÃO DAS EQUIPES -->
+    <!-- TELA 1: APRESENTAÇÃO DAS EQUIPES -->
     <section id="setup-screen" class="screen active">
         <div class="logo-container">
             <span class="badge">EDIÇÃO ESPECIAL</span>
-            <h1>SHOW Semana da<br><span class="highlight">CONSCIÊNCIA NEGRA</span></h1>
+            <h1>SHOW DA SEMANA DA<br><span class="highlight">CONSCIÊNCIA NEGRA</span></h1>
         </div>
 
         <div class="setup-box">
-            <h2>Configuração das Equipes</h2>
-            <p class="subtitle">Defina o nome das 4 equipes participantes:</p>
+            <h2>Equipes Participantes</h2>
+            <p class="subtitle">Preparem-se para a disputa do conhecimento!</p>
             
-            <div class="teams-inputs">
-                <div class="team-input-card" style="--team-color: #e63946;">
-                    <span class="color-dot"></span>
-                    <input type="text" id="team-name-0" value="Equipe Vermelha" placeholder="Nome da Equipe 1">
+            <div class="teams-preview-grid">
+                <div class="team-preview-card" style="--team-color: #e63946;">
+                    <div class="preview-circle"></div>
+                    <span>Equipe Vermelha</span>
                 </div>
-                <div class="team-input-card" style="--team-color: #2a9d8f;">
-                    <span class="color-dot"></span>
-                    <input type="text" id="team-name-1" value="Equipe Verde" placeholder="Nome da Equipe 2">
+                <div class="team-preview-card" style="--team-color: #2a9d8f;">
+                    <div class="preview-circle"></div>
+                    <span>Equipe Verde</span>
                 </div>
-                <div class="team-input-card" style="--team-color: #3a86ff;">
-                    <span class="color-dot"></span>
-                    <input type="text" id="team-name-2" value="Equipe Azul" placeholder="Nome da Equipe 3">
+                <div class="team-preview-card" style="--team-color: #f4a261;">
+                    <div class="preview-circle"></div>
+                    <span>Equipe Amarela</span>
                 </div>
-                <div class="team-input-card" style="--team-color: #f4a261;">
-                    <span class="color-dot"></span>
-                    <input type="text" id="team-name-3" value="Equipe Amarela" placeholder="Nome da Equipe 4">
+                <div class="team-preview-card" style="--team-color: #9b5de5;">
+                    <div class="preview-circle"></div>
+                    <span>Equipe Roxa</span>
                 </div>
             </div>
 
-            <button id="start-btn" class="btn-primary">INICIAR COMPETIÇÃO</button>
+            <button id="go-to-rules-btn" class="btn-primary">VER REGRAS E INICIAR</button>
+        </div>
+    </section>
+
+    <!-- TELA DE REGRAS E EXPLICAÇÃO -->
+    <section id="rules-screen" class="screen">
+        <div class="logo-container">
+            <span class="badge">REGULAMENTO DO JOGO</span>
+            <h1>COMO FUNCIONA A DISPUTA</h1>
+        </div>
+
+        <div class="setup-box rules-box">
+            <div class="rule-item">
+                <span class="rule-icon">🎯</span>
+                <div>
+                    <h3>Dinâmica das Perguntas</h3>
+                    <p>Rodadas alternadas. Cada acerto vale 1 ponto. Perguntas puladas voltam para o fim da fila para outra equipe responder depois!</p>
+                </div>
+            </div>
+
+            <div class="rule-item">
+                <span class="rule-icon">⚡</span>
+                <div>
+                    <h3>Desafios Extras Surpresa</h3>
+                    <p>Após a metade do jogo, 3 momentos aleatórios trarão <strong>Desafios Surpresa</strong> (Perguntas extras com cronômetro ou dinâmicas presenciais com pontuação manual).</p>
+                </div>
+            </div>
+
+            <div class="rule-item">
+                <span class="rule-icon">💥</span>
+                <div>
+                    <h3>Habilidades Especiais</h3>
+                    <p>Cada equipe possui 1 uso de <strong>Eliminar 2 Erradas</strong> e 1 uso de <strong>Dobrar ou Nada</strong> (dobra os pontos ou zera se errar).</p>
+                </div>
+            </div>
+
+            <button id="start-game-btn" class="btn-primary" style="margin-top: 20px;">COMEÇAR O JOGO AGORA!</button>
         </div>
     </section>
 
     <!-- TELA 2: PALCO DO JOGO -->
     <section id="game-screen" class="screen">
-        <!-- Placar Superior (Ranking ao Vivo) -->
-        <header class="scoreboard" id="live-scoreboard">
-            <!-- Preenchido via JS em ordem de pontuação -->
-        </header>
+        <div class="game-layout">
+            
+            <!-- Área Central do Jogo -->
+            <main class="stage">
+                <!-- Indicador de Vez -->
+                <div class="turn-banner" id="turn-banner">
+                    <span class="round-info" id="round-info">RODADA 1</span>
+                    <h2 id="current-team-display">VEZ DA EQUIPE VERMELHA</h2>
+                </div>
 
-        <main class="stage">
-            <!-- Indicador de Vez -->
-            <div class="turn-banner" id="turn-banner">
-                <span class="round-info" id="round-info">RODADA 1</span>
-                <h2 id="current-team-display">VEZ DA EQUIPE VERMELHA</h2>
-            </div>
+                <!-- Caixa da Pergunta / Desafio -->
+                <div class="question-container" id="question-box-wrapper">
+                    <div class="question-header-info">
+                        <span class="theme-tag" id="question-theme">Tema: História</span>
+                        
+                        <!-- Cronômetro (Visível APENAS na Pergunta Extra) -->
+                        <div class="timer-display hidden" id="timer-display">⏱️ <span id="time-left">30</span>s</div>
 
-            <!-- Caixa da Pergunta -->
-            <div class="question-container">
-                <span class="theme-tag" id="question-theme">Tema: História</span>
-                <p class="question-text" id="question-text">Carregando pergunta...</p>
-            </div>
+                        <!-- Botões de Habilidades -->
+                        <div class="skills-container" id="skills-container">
+                            <button id="skill-fifty" class="skill-btn" title="Eliminar 2 alternativas erradas">
+                                💥 50/50 (<span id="count-fifty">1</span>)
+                            </button>
+                            <button id="skill-double" class="skill-btn" title="Dobra os pontos se acertar, mas zera se errar">
+                                ⭐ Dobrar (<span id="count-double">1</span>)
+                            </button>
+                        </div>
+                    </div>
 
-            <!-- Alternativas -->
-            <div class="options-grid" id="options-grid">
-                <!-- Botões A, B, C, D gerados via JS -->
-            </div>
+                    <p class="question-text" id="question-text">Carregando pergunta...</p>
+                </div>
 
-            <!-- Controles do Apresentador -->
-            <div class="host-controls">
-                <button id="next-btn" class="btn-secondary hidden">PRÓXIMA PERGUNTA ➔</button>
-                <button id="finish-early-btn" class="btn-outline">Encerrar e Ver Pódio</button>
-            </div>
-        </main>
+                <!-- Alternativas -->
+                <div class="options-grid" id="options-grid"></div>
+
+                <!-- Painel Exclusivo para Desafios Presenciais -->
+                <div class="manual-challenge-panel hidden" id="manual-challenge-panel">
+                    <h3 style="color: var(--gold); margin-bottom: 15px;">Qual equipe venceu o Desafio Presencial?</h3>
+                    <div class="manual-teams-grid" id="manual-teams-grid"></div>
+                </div>
+
+                <!-- Controles do Apresentador -->
+                <div class="host-controls">
+                    <button id="skip-btn" class="btn-outline">⏭️ Pular Pergunta</button>
+                    <button id="next-btn" class="btn-secondary hidden">PRÓXIMA ➔</button>
+                    <button id="rules-btn" class="btn-outline">📖 Regras</button>
+                    <button id="finish-early-btn" class="btn-outline">Encerrar</button>
+                </div>
+            </main>
+
+            <!-- Placar Lateral Direito -->
+            <aside class="sidebar-scoreboard">
+                <h3>Ranking</h3>
+                <div class="scoreboard-list" id="live-scoreboard"></div>
+            </aside>
+
+        </div>
     </section>
 
     <!-- TELA 3: PÓDIO FINAL -->
     <section id="podium-screen" class="screen">
         <h1>RESULTADO FINAL</h1>
-        <p class="subtitle">Show: Semana da Consciência Negra</p>
+        <p class="subtitle">Show da Semana da Consciência Negra</p>
 
-        <!-- Top 3 (2º à esquerda, 1º no centro, 3º à direita) -->
-        <div class="podium-top" id="podium-top">
-            <!-- Gerado via JS -->
-        </div>
-
-        <!-- Demais colocações em lista -->
-        <div class="podium-others" id="podium-others">
-            <!-- Gerado via JS -->
-        </div>
+        <div class="podium-top" id="podium-top"></div>
+        <div class="podium-others" id="podium-others"></div>
 
         <button onclick="location.reload()" class="btn-primary" style="margin-top: 30px;">JOGAR NOVAMENTE</button>
     </section>
