@@ -183,6 +183,50 @@ const PERGUNTAS = [
         pergunta: "Onde estava localizado o maior quilombo das Américas, o Quilombo dos Palmares?",
         opcoes: ["Serra da Barriga (atual Alagoas)", "Recôncavo Baiano", "Vale do Paraíba", "Serra do Mar"],
         correta: 0 // A
+    },
+    {
+        tema: "Preconceito Algorítmico",
+        pergunta: "O que é o chamado 'Viés nos Dados' em uma Inteligência Artificial?",
+        opcoes: [
+            "Quando a máquina calcula contas matemáticas erradas de propósito.",
+            "Quando a base de dados inicial reflete preconceitos e ignora a diversidade do mundo real.",
+            "Quando o computador decide desligar sozinho.",
+            "Quando o programador apaga a cor de pele das imagens."
+        ],
+        correta: 1 // B
+    },
+    {
+        tema: "Variáveis Indiretas (Proxies)",
+        pergunta: "Como uma IA pode discriminar pessoas sem usar explicitamente a palavra 'raça' no código?",
+        opcoes: [
+            "Usando dados indiretos como o CEP (bairro) ou a escola frequentada, que carregam marcas de desigualdade social.",
+            "Através do som da voz gravada pelo microfone.",
+            "Olhando o histórico de navegação da internet.",
+            "Medindo a velocidade de digitação do teclado."
+        ],
+        correta: 0 // A
+    },
+    {
+        tema: "Impacto Social e Segurança",
+        pergunta: "No Brasil, estudos sobre o uso de reconhecimento facial na segurança pública mostraram que a grande maioria (cerca de 90%) das pessoas afetadas e presas injustamente eram:",
+        opcoes: [
+            "Pessoas ricas dos bairros nobres.",
+            "Turistas estrangeiros.",
+            "Pessoas negras.",
+            "Adolescentes em idade escolar."
+        ],
+        correta: 2 // C
+    },
+    {
+        tema: "Tecnologia Antirracista",
+        pergunta: "Qual é uma das soluções apontadas para evitar o preconceito algorítmico e criar uma tecnologia mais justa?",
+        opcoes: [
+            "Proibir totalmente o uso de computadores no mercado de trabalho.",
+            "Garantir equipes de desenvolvimento diversas, com pessoas de diferentes vivências e origens.",
+            "Deixar que o computador tome todas as decisões sozinho sem supervisão humana.",
+            "Deixar de usar bancos de dados em todo o mundo."
+        ],
+        correta: 1 // B
     }
 ];
 
